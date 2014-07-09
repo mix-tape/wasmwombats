@@ -1,0 +1,233 @@
+// ==========================================================================
+//
+//  Forms
+//		Form elements, plugin styling
+//
+// ==========================================================================
+
+
+// --------------------------------------------------------------------------
+//   Variables
+// --------------------------------------------------------------------------
+
+$form-element-border: 1px solid #e4e4e4;
+
+
+// --------------------------------------------------------------------------
+//   Generic form elements
+// --------------------------------------------------------------------------
+
+form {
+
+	// ----- Remove default styling ----- //
+
+	ul, ol, li {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	label {
+		font-weight: 600;
+	}
+}
+
+// ----- Buttons ----- //
+
+.button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+	@include main-button;
+}
+
+// ----- Input types ----- //
+
+#{$all-text-inputs},
+textarea,
+select {
+	max-width: 100%;
+  border: $form-element-border;
+  padding: 5px 10px;
+  font-weight: normal;
+
+  &.medium {
+	  width: 48%;
+  }
+  &.large {
+	  width: 100%;
+  }
+}
+
+#{$all-text-inputs-hover},
+textarea,
+select {
+  background: white;
+}
+
+#{$all-text-inputs-focus},
+textarea,
+select {
+  background: white;
+}
+
+textarea.medium {
+	height: 100px;
+}
+
+textarea.large {
+	height: 150px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+	margin-right: 10px;
+}
+
+
+// --------------------------------------------------------------------------
+//   GravityForm elements
+// --------------------------------------------------------------------------
+
+
+// ----- Sub element labels ----- //
+
+@mixin small-label {
+	display: block;
+	line-height: 2;
+	font-size: ms(-1);
+}
+
+
+// ----- Field wrappers ----- //
+
+.gform_fields {
+	@include row;
+}
+
+.gfield {
+	@include span-columns(6);
+	@include omega(2n);
+	margin-bottom: $gap;
+
+}
+
+.gfield_required {
+	color: red;
+	margin-left: 0.2em;
+}
+
+
+// ----- Date / Time fields ----- //
+
+.clear-multi {
+	@include clearfix;
+
+	.ginput_container {
+		float: left;
+
+		input, select {
+			margin-right: 10px;
+		}
+	}
+
+	.gfield_time_hour,
+	.gfield_time_minute {
+		width: 70px;
+
+		input {
+			display: inline-block;
+			max-width: 70%;
+		}
+		label {
+			@include small-label;
+		}
+	}
+	.gfield_time_hour {
+		margin-right: 10px;
+	}
+	.gfield_time_ampm {
+		width: 80px;
+	}
+}
+
+.ginput_full {
+
+	input {
+		width: 100%;
+	}
+
+	label {
+ 		@include small-label;
+ 	}
+}
+
+
+// ----- 2 Column Fields ----- //
+
+.ginput_left,
+.ginput_right,
+.gf_left_half,
+.gf_right_half {
+ 	width: 48%;
+ 	clear: none;
+
+ 	input {
+ 		margin: 0;
+ 		width: 100%;
+ 	}
+ 	label {
+ 		@include small-label
+ 	}
+}
+
+.ginput_left,
+.gf_left_half {
+	float: left;
+}
+
+.ginput_right,
+.gf_right_half {
+	float: right;
+}
+
+
+// ----- Lists ----- //
+
+.gfield_list {
+
+	input {
+		width: 100%;
+	}
+}
+
+
+// --------------------------------------------------------------------------
+//   Search form
+// --------------------------------------------------------------------------
+
+.search-form {
+
+	> label {
+		position: relative;
+		display: inline-block;
+		width: 58%;
+
+		.search-field {
+			padding: 0.5em 1em 0.5em 2em;
+		}
+
+		&:before {
+			@include icon;
+			content: '';
+			position: absolute;
+			z-index: 1;
+			top: 0.3em;
+			left: 8px;
+		}
+	}
+
+	.search-submit {
+		width: 40%;
+		display: inline-block;
+	}
+}

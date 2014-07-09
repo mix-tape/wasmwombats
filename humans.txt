@@ -1,0 +1,17 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+/* TEAM */
+
+	Developer: Ryan Berry.
+	Contact: ryanberry@iinet.net.au
+	Twitter: lightandsounds.
+	Location: Perth, Australia.
+
+
+
+/* SITE */
+
+	Standards: HTML5, CSS3
+	Components: Wordpress, Sandpit Development Framework
+	Software: SASS (Bourbon, Neat, Media Query Compiler, Auto-Prefixr), Git, Bower, Gulp

@@ -1,0 +1,58 @@
+// ==========================================================================
+//
+//  Images
+//    Wordpress specific image styles
+//
+// ==========================================================================
+
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
+
+.alignleft{
+	float: left;
+	clear: left;
+	margin-right: $gap;
+}
+
+.alignright {
+	float: right;
+	clear: right;
+	margin-left: $gap;
+}
+
+.aligncenter {
+	display: block;
+	margin: 0 auto $gap;
+}
+
+.alignnone {
+	display: block;
+	margin: 0 0 $gap;
+}
+
+.wp-caption {
+	padding: 0;
+	text-align: center;
+
+	img {
+		display: block;
+		margin: 0;
+		padding: 0;
+		max-width: 100%;
+		height: auto;
+		line-height: 1;
+	}
+
+	.wp-caption-text {
+		margin: 0;
+		padding: 0;
+		font-weight: bold;
+		font-size: ms(-1);
+	}
+}

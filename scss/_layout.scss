@@ -1,0 +1,472 @@
+// ==========================================================================
+//
+//  Layout
+//    Primary stylesheet
+//
+// ==========================================================================
+
+
+html {
+	background-color: #fefefe;
+	overflow-x: hidden;
+}
+
+html.no-touch {
+	overflow-y: auto;
+}
+
+body {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	@include clearfix;
+
+	&.admin-bar {
+		padding-top: 32px;
+
+		@include media($mobile-down) {
+			padding-top: 46px;
+		}
+	}
+}
+
+#page-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+@mixin center {
+	*zoom: 1;
+	margin-left: auto;
+	margin-right: auto;
+	@include clearfix;
+
+	width: $large-desktop;
+
+	@include media($desktop-down) {
+		width: $desktop;
+	}
+
+	@include media($tablet-down) {
+		width: $tablet;
+	}
+
+	@include media($mobile-down) {
+		max-width: $mobile;
+		width: auto;
+	}
+}
+
+
+// --------------------------------------------------------------------------
+//   Sections
+// --------------------------------------------------------------------------
+
+.wrapper {
+	display: block;
+	position: relative;
+	padding: $gap * 2 $gap;
+
+	.section {
+		@include center;
+
+		.section-content {
+			@include row;
+		}
+	}
+}
+
+// --------------------------------------------------------------------------
+//   Header
+// --------------------------------------------------------------------------
+
+#header-wrapper {
+	padding-top: 2*$gap;
+	padding-bottom: 2*$gap;
+	z-index: 99;
+
+	#header {
+
+		#header-content {
+
+		}
+	}
+}
+
+#logo {
+	@include span-columns(4);
+
+	img + h1 {
+		@include visuallyhidden;
+	}
+}
+
+// --------------------------------------------------------------------------
+//	 Toggle Button
+// --------------------------------------------------------------------------
+
+#menu-toggle {
+	position: absolute;
+	display: none;
+	top: $gap;
+	right: $gap;
+	padding: 5px;
+	font-size: 30px;
+	font-weight: 300;
+	line-height: 1;
+	text-align: left;
+	color: #fafafa;
+	background: #333;
+	cursor: pointer;
+	z-index: 100;
+	-webkit-transform: translate3d(0,0,0);
+	-webkit-transform-style: preserve-3d;
+	@include backface-visibility(hidden);
+}
+
+// --------------------------------------------------------------------------
+//   Banner
+// --------------------------------------------------------------------------
+
+#banner-wrapper {
+	// padding: 0; // Un-comment for a full width slider
+
+	#banner {
+		// max-width: 100%; // Un-comment for a full width slider
+
+		#banner-content {
+			position: relative;
+
+			#hero {
+				position: relative;
+				z-index: 2;
+			}
+		}
+	}
+}
+
+
+// ----- Slider Navigation ----- //
+
+.slick-prev,
+.slick-next {
+	display: block;
+	position: absolute;
+
+	width: 50px;
+	height: 50px;
+
+	bottom: $gap * 2;
+	padding: $gap / 2;
+	margin: 0 $gap / 4;
+
+	color: transparent;
+	background: transparent;
+	border: none;
+	outline: none;
+
+	opacity: 0.85;
+
+
+	&:before {
+		@include icon;
+		color: white;
+	}
+
+	&:hover {
+		color: transparent;
+		opacity: 1;
+		&:before {
+			color: $link-hover;
+		}
+	}
+
+	&.slick-disabled {
+		opacity: 0.25;
+	}
+}
+
+.slick-prev {
+	right: $gap * 5;
+
+	&:before {
+		content: '';
+	}
+}
+
+.slick-next {
+	right: $gap * 2;
+
+	&:before {
+		content: '';
+	}
+}
+
+
+
+// --------------------------------------------------------------------------
+//   Main Content
+// --------------------------------------------------------------------------
+
+#main-wrapper {
+
+	#main {
+		padding: $gap 0;
+
+		#main-content {
+
+		}
+	}
+}
+
+
+// --------------------------------------------------------------------------
+//   Content
+// --------------------------------------------------------------------------
+
+#content {
+	@include span-columns(9);
+
+	.archive-title {
+		border-bottom: 1px solid whitesmoke;
+		margin-bottom: $gap;
+		padding-bottom: 10px;
+	}
+
+	article.hentry {
+
+		header {
+
+			h3 {
+				margin: 0;
+			}
+
+			time {
+				margin-bottom: 0;
+				font-size: 1em;
+			}
+			.meta {
+				margin-bottom: $gap;
+				margin-top: 0;
+				font-size: 1em;
+			}
+		}
+
+		.content {
+
+		}
+
+		footer {
+
+		}
+	}
+
+	// ----- Mobile ----- //
+
+	@include media($mobile-down) {
+		@include span-columns(4);
+	}
+}
+
+#content.full-width {
+	@include span-columns(12);
+}
+
+
+// --------------------------------------------------------------------------
+//   Archives
+// --------------------------------------------------------------------------
+
+.archive, .search, .blog {
+
+	#content {
+
+		article {
+			border-bottom: 1px solid whitesmoke;
+			margin: 0 0 $gap * 2;
+		}
+	}
+}
+
+
+// --------------------------------------------------------------------------
+//   Infinite Scroll
+// --------------------------------------------------------------------------
+
+.ias-noneleft, .ias-trigger, .ias-spinner {
+	padding: $gap;
+	width: 100%;
+	text-align: center;
+	border: 1px solid whitesmoke;
+	background: #fafafa;
+	font-size: ms(2);
+}
+
+
+// --------------------------------------------------------------------------
+//   Comments
+// --------------------------------------------------------------------------
+
+.comment {
+	$comment-gutter: $gap;
+	$comment-image-width: 4em;
+	$comment-color: $base-body-color;
+	$comment-detail-color: transparentize($comment-color, .5);
+	$comment-image-vert-alignment: top;
+
+	display: table;
+	width: 100%;
+	margin-bottom: $gap;
+	padding-bottom: 1em;
+	border-bottom: 1px solid transparentize($comment-color, .9);
+
+	.comment-image,
+	.comment-content {
+		display: table-cell;
+		vertical-align: $comment-image-vert-alignment;
+	}
+
+	.comment-image {
+		padding-right: $comment-gutter;
+
+		> img {
+			width: $comment-image-width;
+			height: auto;
+			border-radius: $base-border-radius;
+			display: block;
+			max-width: none;
+		}
+
+		.comment-reverse-order & {
+			padding-right: 0;
+			padding-left: 10px;
+		}
+	}
+
+	.comment-content {
+		width: 100%;
+
+		h1 {
+			font-size: ms(2);
+			margin-bottom: 0.5em;
+			font-weight: bold;
+		}
+
+		p {
+			margin-bottom: 0.5em;
+		}
+
+		.comment-detail {
+			font-style: italic;
+			font-size: .9em;
+			color: $comment-detail-color;
+		}
+	}
+}
+
+// --------------------------------------------------------------------------
+//   Sidebar
+// --------------------------------------------------------------------------
+
+#sidebar {
+	@include span-columns(3);
+
+
+	// ----- Generic widget ----- //
+
+	.widget {
+		margin-bottom: $gap;
+		@include clearfix;
+
+		ul {
+			border-top: 1px solid #eee;
+			padding-left: 0;
+			margin: 0;
+
+			li {
+				list-style: none;
+				border-bottom: 1px solid #eee;
+				padding: 0;
+
+				a {
+					display: block;
+					padding: 0.6em 0.3em;
+				}
+			}
+		}
+
+		.sub-menu li:last-child {
+			border-bottom: none;
+		}
+	}
+
+	// ----- Sidebar menu ----- //
+
+	.widget_sub_menu {
+
+		.menu {
+			border-top: none !important;
+			margin-left: 0;
+		}
+
+		.current_page_ancestor {
+
+			border: none !important;
+
+			> a {
+				font-size: 1em;
+			}
+
+		}
+
+		.active > a {
+			color: inherit;
+		}
+
+		> .active {
+
+			border: none !important;
+
+			> a {
+				font-size: 1em;
+			}
+		}
+	}
+
+	// ----- Mobile ----- //
+
+	@include media($mobile-down) {
+		@include span-columns(4);
+	}
+}
+
+
+// --------------------------------------------------------------------------
+//   Footer
+// --------------------------------------------------------------------------
+
+#footer-wrapper {
+
+
+	#footer {
+
+		#footer-content {
+
+		}
+	}
+}
+
+.footer-nav {
+	@include span-columns(12);
+
+	ul {
+		padding: 0;
+		margin: 0;
+		display: inline-block;
+		list-style: none;
+
+		li {
+
+		}
+	}
+}

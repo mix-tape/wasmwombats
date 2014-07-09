@@ -1,0 +1,18 @@
+{
+	"name": "sandpit",
+	"version": "4.0.0",
+	"private": true,
+	"dependencies": {
+		"modernizr": "",
+		"jquery-easing-original": "",
+		"slick-carousel": "",
+		"jquery-hoverIntent": "",
+		"fastclick": "",
+		"instantclick": "",
+		"jquery-ias": "",
+		"enquire": "",
+		"rem-unit-polyfill": "",
+		"matchMedia": "",
+		"matchHeight": ""
+	}
+}

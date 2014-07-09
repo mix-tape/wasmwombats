@@ -1,0 +1,260 @@
+// ==========================================================================
+//
+//	Side Menu
+//
+// ==========================================================================
+
+
+@if ($sidemenu == true) {
+
+$openspeed: 350ms;
+$menuwidth: 300px;
+
+
+.site-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: $menuwidth;
+	z-index: 9999;
+}
+
+
+// --------------------------------------------------------------------------
+//	 Full width
+// --------------------------------------------------------------------------
+
+@media screen and (min-width: 700px) {
+
+	#nav-wrapper {
+		z-index: 1000;
+		.menu-header {
+			@include center;
+			font-size: 1em;
+
+			 #main-nav {
+				@include row;
+			}
+		}
+	}
+
+}
+
+#main-nav .menu {
+	@include span-columns(12);
+	float: left;
+	padding: 0;
+
+	li {
+		position: relative;
+		float: left;
+		margin-right: 1em;
+		list-style: none;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&.current-menu-item, &.current-menu-ancestor, &.current-menu-parent {
+			background: #fafafa;
+		}
+
+		a {
+			display: block;
+			padding: 0.2em 0.5em;
+		}
+
+		&.active a, &:hover a {
+			background: #fafafa;
+		}
+
+		&.menu-parent > a:after {
+			@include icon;
+			content: '';
+			color: $base-link-color;
+			font-size: 1em;
+			margin-left: 5px;
+			position: relative;
+			top: -1px;
+		}
+
+		.sub-menu {
+			padding: 0;
+			display: none;
+			position: absolute;
+			background: #fafafa;
+			z-index: 1000;
+
+			li {
+				float: none;
+				position: relative;
+				margin-right: 0;
+
+				&.menu-parent > a:after {
+					position: absolute;
+					right: 9px;
+					top: 3px;
+				}
+
+				a {
+					width: 9em;
+				}
+			}
+			.sub-menu {
+				display: none;
+				left: 100%;
+					position: absolute;
+					top: 0;
+			}
+		}
+	}
+}
+
+
+// --------------------------------------------------------------------------
+//	 Mobile
+// --------------------------------------------------------------------------
+
+@media screen and (max-width: 700px) {
+
+	#menu-toggle {
+		display: block;
+	}
+
+	#main-nav .menu {
+		display: inline;
+		float: left;
+		width: 100%;
+		margin: 0;
+		float: left;
+		padding: 0;
+		text-align: center;
+
+		li {
+			position: relative;
+			float: none;
+			display: block;
+			text-align: left;
+			margin-right: 0;
+			border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+			&:hover, &.current-menu-item, &.current-menu-parent {
+				background: rgba(255, 255, 255, 0.1);
+				a {
+
+				}
+			}
+			a {
+				padding: 0.5em 0.5em 0.5em 1.2em;
+				color: white;
+			}
+
+			&.menu-parent > a:after {
+				position: absolute;
+				right: 17px;
+				top: 0.5em;
+				color: white;
+			}
+
+			&.active a, &:hover a {
+				background: rgba(255, 255, 255, 0.1);
+			}
+
+			.sub-menu {
+				position: relative;
+				display: none;
+				max-width: 100%;
+				zoom:1;
+				background: rgba(255, 255, 255, 0.1);
+
+				li {
+					float: none;
+					position: relative;
+					display: block !important;
+					opacity: 1 !important;
+					zoom:1;
+
+					&.menu-parent > a:after {
+						position: absolute;
+						right: 17px;
+						top: 0.5em;
+					}
+					a {
+						width: 100%;
+						padding-left: 1.8em;
+					}
+					.sub-menu {
+						position: relative;
+						left: 0;
+						li {
+							padding-left: 0;
+							a {
+								padding-left: 2.4em;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#nav-wrapper {
+		transform: translate3d(-100%, 0, 0);
+		backface-visibility: hidden;
+		height: 100%;
+		width: $menuwidth;
+		padding: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: #333;
+		box-shadow: inset -1.5em 0 1.5em -0.75em rgba(0, 0, 0, 0.25);
+		z-index: -1;
+
+		.menu-header {
+
+			#main-nav {
+				padding: $gap * 2 0 0;
+				font-size: 1em;
+
+			}
+		}
+	}
+	#page-wrapper {
+		left: 0 !important;
+		transform: translate3d(0, 0, 0);
+		transition: transform $openspeed ease;
+		backface-visibility: hidden;
+	}
+
+	.js-nav .site-overlay {
+		display: block;
+	}
+
+	.js-nav #page-wrapper {
+		transform: translate3d($menuwidth, 0, 0);
+	}
+
+	.js-nav #nav-wrapper {
+		display: block;
+	}
+
+	#nav-wrapper #menu-main {
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+		opacity: 0.7;
+		transition: opacity 300ms 100ms ease, transform $openspeed ease;
+		transform: translate3d(0, 0, 0);
+		transform-origin: 50% 0%;
+	}
+
+	.js-nav #nav-wrapper #menu-main {
+		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+
+}
+
+}
