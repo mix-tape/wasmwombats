@@ -15,13 +15,14 @@
 						<header>
 
 							<h2><?php the_title(); ?></h2>
+							<p class="byline"><?php the_field('byline'); ?></p>
 
 						</header>
 
 						<?php get_template_part('content', 'blocks'); ?>
 
 					</article>
-					
+
 					<?php } } ?>
 
 				</section>
@@ -29,9 +30,9 @@
 				<?php get_sidebar(); ?>
 
 			</div><!-- End #main-content -->
-				
+
 		</div><!-- End #main -->
-	
+
 	</div><!-- End #main-wrapper -->
-	
+
 <?php get_footer(); ?>

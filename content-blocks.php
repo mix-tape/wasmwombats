@@ -30,7 +30,7 @@
 							$numtabs = 0;
 							$numwidths = 0;
 
-							while (the_flexible_field('content')): ?>
+							while (the_flexible_field('content_blocks')): ?>
 
 
 
@@ -42,15 +42,15 @@
 
 								if (get_row_layout() == 'heading'): ?>
 
-									<h<?php the_sub_field('heading_level'); ?> class="heading <?php if (get_sub_field('padding')) { echo 'vertical-padding'; } ?>">
+									<<?php the_sub_field('heading_level'); ?> class="heading">
 
-										<?php the_sub_field('content'); ?>
+										<?php the_sub_field('heading'); ?>
 
-									</h<?php the_sub_field('heading_level'); ?>>
+									</<?php the_sub_field('heading_level'); ?>>
 
 								<?php /*// Text Block ///////*/ elseif (get_row_layout() == 'text_block'): ?>
 
-									<div class="standard <?php if (get_sub_field('padding')) { echo 'vertical-padding'; } ?>">
+									<div class="standard">
 
 										<?php the_sub_field('content'); ?>
 
@@ -255,6 +255,9 @@
 
 								$columns = get_sub_field('columns');
 
+								if (!$columns)
+									$columns = 4;
+
 								$numbers = array("zero", "one", "two", "three", "four", "five", "six");
 
 								$sizes = array("full", "large", "large", "large", "medium", "medium" )
@@ -269,7 +272,7 @@
 
 										<figure>
 
-											<a href="<?php echo $image['url']; ?>">
+											<a href="<?php echo $image['url']; ?>" class="swipebox">
 
 												<img title="<?php echo $image['title']; ?>" src="<?php echo $image['sizes'][$sizes[$columns]]; ?>" alt="<?php echo $image['alt']; ?>" />
 

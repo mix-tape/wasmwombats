@@ -4,7 +4,13 @@
 
 			<div class="section-content" id="footer-content">
 
-				<p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
+				<p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved.</p>
+
+				<p class="contact-details">
+					Locked Bag 22, Kalgoorlie, WA 6430<br>
+					(+61) 8 9088 6096<br>
+					<a href="mailto:wasmwombats@live.com.au">wasmwombats@live.com.au</a>
+				</p>
 
 			</div>
 

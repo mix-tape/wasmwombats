@@ -18,18 +18,25 @@ get_header(); ?>
 
 					<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 
+						<header>
+
+							<h2><?php the_title(); ?></h2>
+							<p class="byline"><?php the_field('byline'); ?></p>
+
+						</header>
+
 						<?php get_template_part('content', 'blocks'); ?>
 
 					</article>
-					
+
 					<?php } } ?>
 
 				</section>
-				
+
 			</div><!-- End #main-content -->
-				
+
 		</div><!-- End #main -->
-	
+
 	</div><!-- End #main-wrapper -->
-	
+
 <?php get_footer(); ?>

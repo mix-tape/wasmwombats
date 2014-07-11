@@ -40,6 +40,12 @@ $(function() {
 
 	FastClick.attach(document.body);
 
+	$( '.swipebox' ).swipebox();
+
+	$('#swipebox-overlay').click(function() {
+		$('.swipebox').closeSlide();
+	});
+
 	// --------------------------------------------------------------------------
 	//   Global
 	// --------------------------------------------------------------------------
@@ -77,7 +83,7 @@ $(function() {
 
 	//if (!$('.site-overlay').length) $('body').prepend(siteOverlay); // Un-comment for side menu
 
-	if (!$('#menu-toggle').length) $('#nav-wrapper').prepend(menuToggle);
+	if (!$('#menu-toggle').length) $('#header-content').prepend(menuToggle);
 
 	$('#menu-toggle').click(function() {
 
@@ -145,6 +151,21 @@ $(function() {
 
 	}
 
+	// --------------------------------------------------------------------------
+	//   Gallery
+	// --------------------------------------------------------------------------
+
+	// if ($('section.gallery').length > 0) {
+
+	// 	$("section.gallery").slick({
+	// 		autoplay: true,
+	// 		slidesToShow: 1,
+	// 		lazyLoad: 'progressive',
+	// 		speed: 600,
+	// 		slide: 'figure'
+	// 	});
+
+	// }
 
 	// --------------------------------------------------------------------------
 	//   Tabs / Accordion

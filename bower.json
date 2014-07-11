@@ -13,6 +13,7 @@
 		"enquire": "",
 		"rem-unit-polyfill": "",
 		"matchMedia": "",
-		"matchHeight": ""
+		"matchHeight": "",
+		"swipebox": ""
 	}
 }

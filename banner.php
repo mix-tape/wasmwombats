@@ -6,27 +6,27 @@
 			<div class="section-content" id="banner-content">
 
 				<?php if ( get_field('slideshow') ) { ?>
-				
-				
+
+
 					<div id="hero">
-	
-	
+
+
 						<?php while(has_sub_field('slideshow')) { ?>
-	
-							
+
+
 							<div>
-	
-								<img src="<?php $imagedata = get_sub_field('image'); echo $imagedata['sizes']['hero']; ?>" alt="" />
-	
+
+								<img src="<?php $imagedata = get_sub_field('image'); echo $imagedata['sizes']['banner']; ?>" alt="" />
+
 							</div>
-	
-	
+
+
 						<?php }	?>
-				 		
-	
+
+
 					</div>
-					
-					
+
+
 				<?php } ?>
 
 			</div>

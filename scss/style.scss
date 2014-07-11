@@ -52,11 +52,11 @@ $green:					#d78f8e;
 $ms-base:  1em;
 $ms-ratio: 1.414;
 
-$base-body-color: 		#6f6f6f;
-$base-heading-color:	#333;
+$base-body-color: 		#665e5e;
+$base-heading-color:	#fff;
 
-$base-link-color: 		$blue;
-$link-hover: 					$base-link-color + #222;
+$base-link-color: 		#fff;
+$link-hover: 					$base-link-color - #222;
 
 $base-border-color: 	$medium-gray;
 $base-border-radius:	4px;
@@ -89,10 +89,10 @@ $desktop-down:				new-breakpoint(max-width ($desktop + 440px) 12);
 $tablet-down:					new-breakpoint(max-width ($tablet + 440px) 12);
 $mobile-down:					new-breakpoint(max-width ($mobile + 440px) 4);
 
-$large-desktop-up:		new-breakpoint(min-width $large-desktop 12);
-$desktop-up:					new-breakpoint(min-width $desktop 12);
-$tablet-up:						new-breakpoint(min-width $tablet 12);
-$mobile-up:						new-breakpoint(min-width $mobile 12);
+$large-desktop-up:		new-breakpoint(min-width $desktop 12);
+$desktop-up:					new-breakpoint(min-width $tablet 12);
+$tablet-up:						new-breakpoint(min-width $mobile 12);
+$mobile-up:						new-breakpoint(min-width 0 12);
 
 
 @import 'neat/neat';

@@ -20,7 +20,8 @@
 			@include center;
 
 			#main-nav {
-
+				background: url(images/bg-nav.jpg) center top;
+				@include clearfix;
 			}
 		}
 	}
@@ -31,28 +32,35 @@
 	@include span-columns(12);
 	float: left;
 	padding: 0;
+	margin: 0;
 
 	li {
+		display: inline-block;
 		position: relative;
-		float: left;
-		margin-right: 1em;
 		list-style: none;
+		padding: 15px 10px;
 
 		&:last-child {
 			margin-right: 0;
 		}
 
 		&.current-menu-item, &.current-menu-ancestor, &.current-menu-parent {
-			background: #fafafa;
+			background: black;
+			background: rgba(black, 0.4);
 		}
 
 		a {
 			display: block;
-			padding: 0.2em 0.5em;
+			padding: 0 20px;
+			font-weight: bold;
+			text-shadow: #142700 -1px 2px 3px;
+			text-transform: uppercase;
+			letter-spacing: -1px;
 		}
 
-		&.active a, &:hover a {
-			background: #fafafa;
+		&.active a, a:hover {
+			background: black;
+			background: rgba(black, 0.4);
 		}
 
 		&.menu-parent > a:after {
@@ -110,24 +118,19 @@
 
 	#nav-wrapper {
 		z-index: 98;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
 		padding: 0;
-		background: #333;
 
 		.menu-header {
 			padding: 0;
 			max-height: 0;
 			max-width: none;
+			width: auto;
 			overflow: hidden;
 			@include transition(all 600ms ease-in-out);
 
 			#main-nav {
-				padding: $gap;
-				width: 320px;
-				font-size: 1em;
+
+				margin: 0 auto;
 				@include clearfix;
 			}
 		}
@@ -140,32 +143,14 @@
 	}
 
 	#main-nav .menu {
-		display: inline;
-		float: left;
-		width: 100%;
-		margin: 0;
-		float: left;
 		padding: 0;
-		text-align: center;
+		width: 100%;
 
 		li {
 			float: none;
 			display: block;
 			text-align: left;
 			margin-right: 0;
-
-			&:hover, &.current-menu-item, &.current-menu-parent {
-				background: rgba(255, 255, 255, 0.1);
-
-				a {
-
-				}
-			}
-
-			a {
-				padding: 0.5em 0.5em 0.5em 1.5em;
-				color: white;
-			}
 
 			&.menu-parent > a:after {
 				position: absolute;
@@ -174,16 +159,12 @@
 				color: white;
 			}
 
-			&.active a, &:hover a {
-				background: rgba(255, 255, 255, 0.1);
-			}
-
 			.sub-menu {
 				position: relative;
 				display: none;
 				max-width: 100%;
 				zoom:1;
-				background: rgba(255, 255, 255, 0.1);
+				// background: rgba(255, 255, 255, 0.1);
 
 				li {
 					float: none;

@@ -44,6 +44,7 @@ config.plugins = [
 	config.vendor + '/jquery-hoverIntent/jquery.hoverIntent.js',
 	config.vendor + '/enquire/dist/enquire.js',
 	config.vendor + '/matchMedia/matchMedia.js',
+	config.vendor + '/swipebox/src/js/jquery.swipebox.js'
 ]
 
 
